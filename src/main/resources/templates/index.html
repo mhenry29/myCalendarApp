@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+    <h1>Hello Calendar App</h1>
+    <!-- <p>Showing Upcoming Events for: <b th:text="${name}"></b>.</p> -->
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/resources/demos/style.css"/>
+    <script>
+        $(function() {
+            $( "#datepicker" ).datepicker();
+        });
+    </script>
+    <table class="table table-striped">
+
+        <tr>
+            <th>CREATOR</th>
+            <th>EVENT</th>
+            <th># START TIME</th>
+        </tr>
+        <tr th:each="event : ${events}">
+            <td style="padding-right: 10px" th:text="${event.creator}"></td>
+            <td style="padding-right: 10px" th:text="${event.summary}"></td>
+            <td style="padding-right: 10px" th:text="${event.start}"></td>
+        </tr>
+    </table>
+</body>
+</html>
+<p>Date: <input type="text" id="datepicker"/></p>
+
+
